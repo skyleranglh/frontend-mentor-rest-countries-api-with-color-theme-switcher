@@ -2,8 +2,8 @@ import type { Dispatch, SetStateAction } from "react";
 
 import type { Country } from "../../../types";
 
-
 import Search from "./Search";
+import Dropdown from "./Dropdown";
 
 import "./CountriesFilter.scss";
 
@@ -21,6 +21,11 @@ const CountriesFilter = ({
   return (
     <div className="countries-filter">
       <Search
+        setCountries={setCountries}
+        setError={setError}
+        setLoading={setLoading}
+      />
+      <Dropdown
         setCountries={setCountries}
         setError={setError}
         setLoading={setLoading}
