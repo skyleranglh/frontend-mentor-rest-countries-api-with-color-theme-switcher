@@ -1,7 +1,13 @@
+import type { Country } from "../../../types";
+
 import "./CountryCard.scss";
 
-const CountryCard = (props) => {
-  const { flags, name, population, region, capital } = props.country;
+type CountryCardProps = {
+  country: Country;
+};
+
+const CountryCard = ({ country }: CountryCardProps) => {
+  const { flags, name, population, region, capital } = country;
   const { png, alt } = flags;
 
   return (
@@ -11,7 +17,8 @@ const CountryCard = (props) => {
         <h2 className="country_card__title">{name.common}</h2>
         <div className="country_card__labels">
           <p>
-            <span className="country_card__label">Population:</span> {population}
+            <span className="country_card__label">Population:</span>{" "}
+            {population}
           </p>
           <p>
             <span className="country_card__label">Region:</span> {region}

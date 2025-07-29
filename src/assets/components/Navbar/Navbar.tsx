@@ -1,10 +1,8 @@
 import ToggleTheme from "../ToggleTheme";
 
-import "./Navbar.scss";
+import type { NavbarProps } from "../../../types";
 
-type NavbarProps = {
-  title: string;
-};
+import "./Navbar.scss";
 
 const Navbar = ({ title }: NavbarProps) => {
   return (
