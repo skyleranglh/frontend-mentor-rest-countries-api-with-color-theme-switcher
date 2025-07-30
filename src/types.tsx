@@ -14,7 +14,9 @@ export type Country = {
 };
 
 export type CountriesFilterProps = {
+  countries: Country[];
   setCountries: Dispatch<SetStateAction<Country[]>>;
+  setFilteredCountries: React.Dispatch<React.SetStateAction<Country[]>>;
   setError: Dispatch<SetStateAction<string | null>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
 };
