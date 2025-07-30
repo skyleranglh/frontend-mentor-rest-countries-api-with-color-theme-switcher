@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 
 import type { Country } from "../../types";
@@ -14,21 +15,18 @@ type CountriesFilterProps = {
 };
 
 const CountriesFilter = ({
-  setCountries,
-  setError,
-  setLoading,
+  countries,
+  setFilteredCountries,
 }: CountriesFilterProps) => {
   return (
     <div className="countries-filter">
       <Search
-        setCountries={setCountries}
-        setError={setError}
-        setLoading={setLoading}
+        countries={countries}
+        setFilteredCountries={setFilteredCountries}
       />
       <Dropdown
-        setCountries={setCountries}
-        setError={setError}
-        setLoading={setLoading}
+        countries={countries}
+        setFilteredCountries={setFilteredCountries}
       />
     </div>
   );

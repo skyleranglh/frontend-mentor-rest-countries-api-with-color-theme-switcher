@@ -6,39 +6,39 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./Search.scss";
 
-const Search = ({
-  setCountries,
-  setError,
-  setLoading,
-}: CountriesFilterProps) => {
+const Search = ({ countries, setFilteredCountries }: CountriesFilterProps) => {
   const [value, setValue] = useState("");
 
-  const fetchData = async () => {
-    const apiUrl = "https://restcountries.com/v3.1/name/";
-    try {
-      const res = await fetch(
-        `${apiUrl}${value}?fields=name,region,flags,population,capital,cca3`
-      );
-      const data = await res.json();
-      setCountries(data);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Unexpected error");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+  const normalize = (str: string) =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "");
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setValue(value);
   };
 
+  const handleSearch = () => {
+    if (value === "") {
+      setFilteredCountries(countries);
+      return;
+    }
+
+    const term = normalize(value.trim());
+
+    const result = countries.filter((country) => {
+      const nameCommon = normalize(country.name.common);
+      const nameOfficial = normalize(country.name.official);
+      return nameCommon.includes(term) || nameOfficial.includes(term);
+    });
+
+    setFilteredCountries(result);
+  };
+
   const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter" && value !== "") fetchData();
+    if (event.key === "Enter") handleSearch();
   };
 
   return (

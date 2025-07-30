@@ -7,9 +7,8 @@ import "./Dropdown.scss";
 const regions = ["africa", "america", "asia", "europe", "oceania"];
 
 const Dropdown = ({
-  setCountries,
-  setError,
-  setLoading,
+  countries,
+  setFilteredCountries,
 }: CountriesFilterProps) => {
   const [selected, setSelected] = useState("Filter by Region");
   const [open, setOpen] = useState(false);
@@ -20,29 +19,17 @@ const Dropdown = ({
   };
 
   useEffect(() => {
-    if (!selected || selected === "Filter by Region") return;
+    if (selected === "Filter by Region") return;
 
-    const fetchData = async () => {
-      const apiUrl = "https://restcountries.com/v3.1/region/";
-      try {
-        const res = await fetch(
-          `${apiUrl}${selected}?fields=name,region,flags,population,capital,cca3`
-        );
-        const data = await res.json();
-        setCountries(data);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("Unexpected error");
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
+    const normalizedRegion = selected === "america" ? "americas" : selected;
 
-    fetchData();
-  }, [selected, setCountries, setError, setLoading]);
+    const filtered = countries.filter(
+      (country) =>
+        country.region.toLowerCase() === normalizedRegion.toLowerCase()
+    );
+
+    setFilteredCountries(filtered);
+  }, [selected, countries, setFilteredCountries]);
 
   return (
     <div className="countries-filter__dropdown">

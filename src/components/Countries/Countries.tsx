@@ -9,6 +9,7 @@ import "./Countries.scss";
 
 const Countries = () => {
   const [countries, setCountries] = useState<Country[]>([]);
+  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,6 +22,7 @@ const Countries = () => {
         );
         const data = await res.json();
         setCountries(data);
+        setFilteredCountries(data);
       } catch (err: unknown) {
         if (err instanceof Error) setError(err.message);
         else setError("Unexpected error");
@@ -38,13 +40,13 @@ const Countries = () => {
   return (
     <div className="countries">
       <CountriesFilter
-        setCountries={setCountries}
-        setError={setError}
-        setLoading={setLoading}
+        countries={countries}
+        filteredCountries={filteredCountries}
+        setFilteredCountries={setFilteredCountries}
       />
 
       <div className="countries__list">
-        {countries.map((country) => (
+        {filteredCountries.map((country) => (
           <CountryCard key={country.cca3} country={country} />
         ))}
       </div>
