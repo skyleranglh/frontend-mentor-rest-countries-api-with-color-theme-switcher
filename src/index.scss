@@ -1,3 +1,26 @@
+:root {
+  --background: hsl(0, 0%, 99%);
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 50%);
+  --elemet: hsl(0, 100%, 100%);
+}
+
+.dark {
+  --background: hsl(207, 26%, 17%);
+  --text: hsl(0, 100%, 100%);
+  --input: hsl(209, 23%, 22%);
+  --elemet: hsl(209, 23%, 22%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --background: hsl(207, 26%, 17%);
+    --text: hsl(0, 100%, 100%);
+    --input: hsl(209, 23%, 22%);
+    --elemet: hsl(209, 23%, 22%);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -8,6 +31,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background-color: var(--background)
 }
 
 button {
@@ -16,6 +41,7 @@ button {
   outline: none;
   font: inherit;
   cursor: pointer;
+  color: inherit;
 }
 
 input {
@@ -24,4 +50,9 @@ input {
   outline: none;
   font: inherit;
   width: 100%;
+  color: inherit;
+}
+
+input::placeholder {
+  color: inherit;
 }

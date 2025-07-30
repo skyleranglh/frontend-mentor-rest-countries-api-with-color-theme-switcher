@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import type { CountriesFilterProps } from "../../../../types";
+import type { CountriesFilterProps } from "../../../types";
 
 import "./Dropdown.scss";
 

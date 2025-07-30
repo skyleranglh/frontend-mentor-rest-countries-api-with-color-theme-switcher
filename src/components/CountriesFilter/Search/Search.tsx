@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { CountriesFilterProps } from "../../../../types";
+import type { CountriesFilterProps } from "../../../types";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -38,7 +38,7 @@ const Search = ({
   };
 
   const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") fetchData();
+    if (event.key === "Enter" && value !== "") fetchData();
   };
 
   return (
@@ -46,7 +46,7 @@ const Search = ({
       <FontAwesomeIcon icon={faSearch} className="search-box__icon" />
       <input
         type="text"
-        className="countries-filter-input"
+        className="countries-filter__search-input"
         placeholder="Search for a country..."
         value={value}
         onChange={handleInput}

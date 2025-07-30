@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import type { Country } from "../../../types";
+import type { Country } from "../../types";
 
 import CountryCard from "../CountryCard";
 import CountriesFilter from "../CountriesFilter";

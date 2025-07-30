@@ -1,6 +1,6 @@
 import ToggleTheme from "../ToggleTheme";
 
-import type { NavbarProps } from "../../../types";
+import type { NavbarProps } from "../../types";
 
 import "./Navbar.scss";
 

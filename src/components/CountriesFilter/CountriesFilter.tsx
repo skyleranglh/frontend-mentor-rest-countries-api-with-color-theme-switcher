@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from "react";
 
-import type { Country } from "../../../types";
+import type { Country } from "../../types";
 
 import Search from "./Search";
 import Dropdown from "./Dropdown";

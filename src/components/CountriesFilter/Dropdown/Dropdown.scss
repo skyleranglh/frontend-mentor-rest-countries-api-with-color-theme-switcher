@@ -2,11 +2,11 @@
   position: relative;
   width: 16em;
   font-size: 0.9em;
+  background-color: var(--elemet);
 
   &-toggle {
     width: 100%;
     padding: 1.5em 2em;
-    background-color: white;
     border: none;
     border-radius: 0.5em;
     box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.08);
@@ -16,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
     text-transform: capitalize;
+    background-color: var(--elemet);
   }
 
   &-arrow {
@@ -39,12 +40,12 @@
     left: 0;
     width: 100%;
     margin-top: 0.3em;
-    background-color: white;
     border-radius: 0.5em;
     box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
     z-index: 10;
     list-style: none;
     padding: 1em 0;
+    background-color: var(--elemet);
   }
 
   &-item {
@@ -54,7 +55,7 @@
     transition: background 0.2s;
 
     &:hover {
-      background-color: hsl(0, 0%, 95%);
+      background-color: var(--elemet);
     }
   }
 }
