@@ -1,6 +1,3 @@
-import { useState } from "react";
-import type { Dispatch, SetStateAction } from "react";
-
 import type { Country } from "../../types";
 
 import Search from "./Search";
@@ -9,9 +6,8 @@ import Dropdown from "./Dropdown";
 import "./CountriesFilter.scss";
 
 type CountriesFilterProps = {
-  setCountries: Dispatch<SetStateAction<Country[]>>;
-  setError: Dispatch<SetStateAction<string | null>>;
-  setLoading: Dispatch<SetStateAction<boolean>>;
+  countries: Country[];
+  setFilteredCountries: React.Dispatch<React.SetStateAction<Country[]>>;
 };
 
 const CountriesFilter = ({

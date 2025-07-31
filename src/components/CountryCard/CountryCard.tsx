@@ -1,10 +1,6 @@
-import type { Country } from "../../types";
+import type { CountryCardProps } from "../../types";
 
 import "./CountryCard.scss";
-
-type CountryCardProps = {
-  country: Country;
-};
 
 const CountryCard = ({ country }: CountryCardProps) => {
   const { flags, name, population, region, capital } = country;
@@ -18,7 +14,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
         <div className="country_card__labels">
           <p>
             <span className="country_card__label">Population:</span>{" "}
-            {population}
+            {population.toLocaleString()}
           </p>
           <p>
             <span className="country_card__label">Region:</span> {region}

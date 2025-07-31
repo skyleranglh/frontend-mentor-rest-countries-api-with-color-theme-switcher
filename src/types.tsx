@@ -1,11 +1,9 @@
-import type { Dispatch, SetStateAction } from "react";
-
 export type NavbarProps = {
   title: string;
 };
 
 export type Country = {
-  name: { common: string };
+  name: { common: string; official: string };
   region: string;
   flags: { png: string; svg: string; alt?: string };
   population: number;
@@ -15,8 +13,9 @@ export type Country = {
 
 export type CountriesFilterProps = {
   countries: Country[];
-  setCountries: Dispatch<SetStateAction<Country[]>>;
   setFilteredCountries: React.Dispatch<React.SetStateAction<Country[]>>;
-  setError: Dispatch<SetStateAction<string | null>>;
-  setLoading: Dispatch<SetStateAction<boolean>>;
+};
+
+export type CountryCardProps = {
+  country: Country;
 };

@@ -41,7 +41,6 @@ const Countries = () => {
     <div className="countries">
       <CountriesFilter
         countries={countries}
-        filteredCountries={filteredCountries}
         setFilteredCountries={setFilteredCountries}
       />
 
