@@ -1,6 +1,11 @@
 .countries-filter {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
+  gap: 3em;
+
+  @media (min-width: 48em) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

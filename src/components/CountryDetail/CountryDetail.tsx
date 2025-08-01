@@ -128,8 +128,12 @@ const CountryDetail = () => {
           </div>
 
           <div className="country_detail__border_countries">
-            <p className="border_countries">
-              Border Countries:{" "}
+            <p>
+              <span className="country_detail__info_label">
+                Border Countries:
+              </span>
+            </p>
+            <div className="country_detail__border_countries_wrapper">
               {borders && borders.length > 0
                 ? borders.map((border) => (
                     <Link key={border} to={`/countries/${border}`}>
@@ -139,7 +143,7 @@ const CountryDetail = () => {
                     </Link>
                   ))
                 : "N/A"}
-            </p>
+            </div>
           </div>
         </div>
       </div>
