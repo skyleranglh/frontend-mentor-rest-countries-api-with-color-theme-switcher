@@ -7,10 +7,6 @@
     border-radius: 0.25em 0.25em 0 0;
     width: 100%;
     object-fit: cover;
-
-    @media (min-width: 48em) {
-      height: 10em;
-    }
   }
 
   &__body {
