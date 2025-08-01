@@ -21,14 +21,33 @@ export type CountryCardProps = {
 };
 
 export type CountryDetailType = {
-  flags: { png: string; svg: string; alt?: string };
-  name: { common: string; native: string };
-  population: number;
+  name: {
+    common: string;
+    nativeName: {
+      [langCode: string]: {
+        official: string;
+        common: string;
+      };
+    };
+  };
   region: string;
   subregion: string;
+  flags: {
+    png: string;
+    alt: string;
+  };
+  population: number;
   capital: string[];
-  tld: Array<string>;
-  currencies: Array<string>;
-  languages: Array<string>;
-  borders: Array<string>;
+  cca3: string;
+  tld: string[];
+  currencies: {
+    [currencyCode: string]: {
+      name: string;
+      symbol: string;
+    };
+  };
+  languages: {
+    [langCode: string]: string;
+  };
+  borders: string[];
 };
