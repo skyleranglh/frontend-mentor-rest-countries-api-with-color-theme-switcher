@@ -66,7 +66,7 @@
   width: 8em;
   background-color: var(--element);
   padding: 0.5em 2em;
-  border-radius: 0.5em;
+  border-radius: var(--element-border-radius);
   box-shadow: var(--back-button-shadow);
 }
 
@@ -77,5 +77,5 @@
   background-color: var(--element);
   color: inherit;
   font-size: 0.85em;
-  border-radius: 0.5em;
+  border-radius: var(--element-border-radius);
 }

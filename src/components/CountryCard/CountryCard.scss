@@ -1,5 +1,5 @@
 .country_card {
-  border-radius: 0.25em;
+  border-radius: var(--element-border-radius);
   box-shadow: var(--country-card-shadow);
   background-color: var(--elemet);
 

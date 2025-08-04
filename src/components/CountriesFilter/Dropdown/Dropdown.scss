@@ -8,7 +8,7 @@
     width: 100%;
     padding: 1.5em 2em;
     border: none;
-    border-radius: 0.5em;
+    border-radius: var(--element-border-radius);
     box-shadow: var(--country-filter-shadow);
     text-align: left;
     cursor: pointer;
