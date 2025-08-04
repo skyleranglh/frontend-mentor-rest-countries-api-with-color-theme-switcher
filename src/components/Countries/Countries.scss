@@ -12,12 +12,13 @@
   &__list {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 0 4em;
     gap: 2em;
+    margin: 0 2em;
 
     @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
       gap: 4em;
+      margin: 0 3em;
     }
 
     @media (min-width: 76em) {
