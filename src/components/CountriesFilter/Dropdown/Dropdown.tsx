@@ -37,23 +37,23 @@ const Dropdown = ({
   }, [selected, countries, setFilteredCountries]);
 
   return (
-    <div className="countries-filter__dropdown">
+    <div className="countries_filter__dropdown">
       <button
-        className="countries-filter__dropdown-toggle"
+        className="countries_filter__dropdown_toggle"
         onClick={() => setOpen(!open)}
       >
         {selected}
         <span
-          className={`countries-filter__dropdown-arrow ${open ? "open" : ""}`}
+          className={`countries_filter__dropdown_arrow ${open ? "open" : ""}`}
         />
       </button>
 
       {open && (
-        <ul className="countries-filter__dropdown-menu">
+        <ul className="countries_filter__dropdown_menu">
           {regions.map((region) => (
             <li key={region}>
               <button
-                className="countries-filter__dropdown-item"
+                className="countries_filter__dropdown_item"
                 onClick={() => handleSelect(region)}
               >
                 {region}
