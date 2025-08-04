@@ -1,7 +1,16 @@
+.country_card_link {
+  outline: none;
+
+  &:focus-visible .country_card {
+    outline: auto;
+    border-radius: var(--element-border-radius);
+  }
+}
+
 .country_card {
   border-radius: var(--element-border-radius);
   box-shadow: var(--country-card-shadow);
-  background-color: var(--elemet);
+  background-color: var(--element);
 
   &__image {
     border-radius: 0.25em 0.25em 0 0;

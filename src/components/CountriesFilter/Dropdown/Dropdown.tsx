@@ -46,12 +46,13 @@ const Dropdown = ({
       {open && (
         <ul className="countries-filter__dropdown-menu">
           {regions.map((region) => (
-            <li
-              key={region}
-              className="countries-filter__dropdown-item"
-              onClick={() => handleSelect(region)}
-            >
-              {region}
+            <li key={region}>
+              <button
+                className="countries-filter__dropdown-item"
+                onClick={() => handleSelect(region)}
+              >
+                {region}
+              </button>
             </li>
           ))}
         </ul>

@@ -9,9 +9,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
   const { png, alt } = flags;
 
   return (
-    <Link
-      to={`/countries/${cca3}`}
-    >
+    <Link className="country_card_link" to={`/countries/${cca3}`}>
       <div className="country_card">
         <img className="country_card__image" src={png} alt={alt} />
         <div className="country_card__body">

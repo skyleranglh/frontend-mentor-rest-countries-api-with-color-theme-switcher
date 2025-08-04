@@ -136,10 +136,10 @@ const CountryDetail = () => {
             <div className="country_detail__border_countries_wrapper">
               {borders && borders.length > 0
                 ? borders.map((border) => (
-                    <Link key={border} to={`/countries/${border}`}>
-                      <span className="border_country">
+                    <Link className="border_country_link" key={border} to={`/countries/${border}`}>
+                      <button className="border_country">
                         {regionNames.of(alpha3ToAlpha2[border]) || border}
-                      </span>
+                      </button>
                     </Link>
                   ))
                 : "N/A"}

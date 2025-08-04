@@ -11,8 +11,18 @@ import "./ToggleTheme.scss";
 const ToggleTheme = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  const handleToggleTheme = () => {
+    document.body.classList.add("disable-transitions");
+
+    toggleTheme();
+
+    setTimeout(() => {
+      document.body.classList.remove("disable-transitions");
+    }, 0);
+  };
+
   return (
-    <button onClick={toggleTheme} className="toggle_theme">
+    <button onClick={handleToggleTheme} className="toggle_theme">
       <FontAwesomeIcon
         className="toggle_theme__icon"
         icon={theme === "light" ? faMoon : faMoonSolid}
