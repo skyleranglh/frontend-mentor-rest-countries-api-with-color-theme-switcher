@@ -4,7 +4,7 @@ import type { CountriesFilterProps } from "../../../types";
 
 import "./Dropdown.scss";
 
-const regions = ["africa", "america", "asia", "europe", "oceania"];
+const regions = ["africa", "america", "asia", "europe", "oceania", "reset"];
 
 const Dropdown = ({
   countries,
@@ -20,6 +20,11 @@ const Dropdown = ({
 
   useEffect(() => {
     if (selected === "Filter by Region") return;
+    if (selected === "reset") {
+      setSelected("Filter by Region");
+      setFilteredCountries(countries);
+      return;
+    }
 
     const normalizedRegion = selected === "america" ? "americas" : selected;
 
