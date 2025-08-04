@@ -29,6 +29,7 @@ const CountryDetail = () => {
           `${apiUrl}${cca3}?fields=name,region,subregion,flags,population,capital,cca3,tld,currencies,languages,borders&fullText=true`
         );
         const data = await res.json();
+        console.log(data);
         setCountry(data);
       } catch (err: unknown) {
         if (err instanceof Error) setError(err.message);
@@ -41,14 +42,29 @@ const CountryDetail = () => {
     fetchData();
   }, [cca3]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!country) return <p>No country found.</p>;
-  if (!cca3) return <p>No country code specified.</p>;
-
   const regionNames = new Intl.DisplayNames(["en"], {
     type: "region",
   });
+
+  if (loading || !country || !country.name || !country.name.common || !cca3) {
+    return (
+      <p className={`country_detail ${loading ? "loading" : "error"}`}>
+        {loading
+          ? "Loading..."
+          : !cca3
+          ? "No country code specified."
+          : !country
+          ? "No country found."
+          : !country.name?.common
+          ? "No valid country data found."
+          : "Unknown error"}
+      </p>
+    );
+  }
+
+  if (error) {
+    return <p className="country_detail error">Error: {error}</p>;
+  }
 
   const {
     name: { common, nativeName },
@@ -136,7 +152,11 @@ const CountryDetail = () => {
             <div className="country_detail__border_countries_wrapper">
               {borders && borders.length > 0
                 ? borders.map((border) => (
-                    <Link className="border_country_link" key={border} to={`/countries/${border}`}>
+                    <Link
+                      className="border_country_link"
+                      key={border}
+                      to={`/countries/${border}`}
+                    >
                       <button className="border_country">
                         {regionNames.of(alpha3ToAlpha2[border]) || border}
                       </button>

@@ -2,6 +2,13 @@
   display: grid;
   gap: 5em;
 
+  &.loading,
+  &.error {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
   &__body {
     display: grid;
     grid-template-columns: 1fr;
