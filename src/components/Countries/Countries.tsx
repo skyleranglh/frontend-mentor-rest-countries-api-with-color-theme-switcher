@@ -34,8 +34,8 @@ const Countries = () => {
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p className="countries loading">Loading...</p>;
+  if (error) return <p className="countries error">Error: {error}</p>;
 
   return (
     <div className="countries">
@@ -44,10 +44,18 @@ const Countries = () => {
         setFilteredCountries={setFilteredCountries}
       />
 
-      <div className="countries__list">
-        {filteredCountries.map((country) => (
-          <CountryCard key={country.cca3} country={country} />
-        ))}
+      <div
+        className={`countries__list${
+          filteredCountries.length === 0 ? " countries__list--empty" : ""
+        }`}
+      >
+        {filteredCountries.length > 0 ? (
+          filteredCountries.map((country) => (
+            <CountryCard key={country.cca3} country={country} />
+          ))
+        ) : (
+          <h2 className="countries__not_found">NO RESULTS FOUND</h2>
+        )}
       </div>
     </div>
   );

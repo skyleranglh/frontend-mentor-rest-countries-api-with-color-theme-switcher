@@ -2,6 +2,13 @@
   display: grid;
   gap: 3em;
 
+  &.loading,
+  &.error {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: 1fr;
@@ -17,6 +24,13 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 4em;
       margin: 0;
+    }
+
+    &--empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50vh;
     }
   }
 
