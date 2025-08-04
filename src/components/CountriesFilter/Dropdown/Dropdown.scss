@@ -4,12 +4,12 @@
   background-color: var(--elemet);
   font-weight: 600;
 
-&-toggle {
+  &-toggle {
     width: 100%;
     padding: 1.5em 2em;
     border: none;
     border-radius: 0.5em;
-    box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.08);
+    box-shadow: var(--country-filter-shadow);
     text-align: left;
     cursor: pointer;
     display: flex;
@@ -24,8 +24,8 @@
     margin-left: 1em;
     width: 0.6em;
     height: 0.6em;
-    border-right: 0.15em solid hsl(0, 0%, 52%);
-    border-bottom: 0.15em solid hsl(0, 0%, 52%);
+    border-right: 0.15em solid var(--text);
+    border-bottom: 0.15em solid var(--text);
     transform: rotate(45deg);
     transition: transform 0.2s;
 
@@ -41,7 +41,7 @@
     width: 100%;
     margin-top: 0.3em;
     border-radius: 0.5em;
-    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+    box-shadow: var(--country-filter-shadow);
     z-index: 10;
     list-style: none;
     padding: 1em 0;
